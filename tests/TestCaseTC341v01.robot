@@ -15,7 +15,7 @@ ${MyRepositoryName}    TMPWEBV497TC341
 # You must create the folder "MyFolderWorkspace" manually in the computer of Jenkins master, in case you test the script with the computer of Jenkins master
 ${MyFolderWorkspace}    C:/000/jenkins/workspace
 
-${MyHostname}    demo5757
+${MyHostname}    demo9393
 ${MyPortNumber}    10000
 #  Do not use the brackets to define the variable of bearer token
 ${bearerToken}    Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJJbnN0YWxsZXIiLCJuYW1lIjoiSW5zdGFsbGVyIiwiaXNzIjoiVGVsZW1pcyIsImlhdCI6MTUxNjIzOTAyMiwiZXhwIjoxODYxOTIwMDAwfQ.pynnZ69Qx50wuz0Gh4lx-FHZznrcQkbMm0o-PLhb3S0
@@ -27,8 +27,8 @@ ${MyBrowser3}    edge
 ${TmpWebAdministratorLogin}    telemis_webadmin
 ${TmpWebAdministratorPassword}    KEYCLOAKTastouk!
 
-${TmpWebAnthonyLogin}    anthony
-${TmpWebAnthonyPassword}    Videogames2024
+${TmpWebUser1Login}    anthony
+${TmpWebUser1Password}    Videogames2024
 
 # NOT USEFUL ${MyFolderResults}    results
 ${MyLogFile}    MyLogFile.log
@@ -354,8 +354,8 @@ Test06
     Wait Until Page Contains    502 Bad Gateway    timeout=15s
     Sleep    2s
     # Quit the error page
-    Go To    https://${MyHostname}:8444/auth/
-    Wait Until Page Contains    Centrally manage all aspects of the Keycloak server    timeout=15s
+    Go To    http://localhost/MyApp/QuitWebsite.html
+    Wait Until Page Contains    Quit the previous website    timeout=15s
     Sleep    1s
     # Log out the current user session. If not, the administrator can not connect to TMP Web.
     Go To    https://${MyHostname}.telemiscloud.com/tmpweb/logout
@@ -395,7 +395,7 @@ Test08
 Test09
     [Documentation]    The limited user account connects to the website for the very first time
     [Tags]    TC009
-    My User Opens Internet Browser And Connects To My TMP Web    ${TmpWebAnthonyLogin}    ${TmpWebAnthonyPassword}
+    My User Opens Internet Browser And Connects To My TMP Web    ${TmpWebUser1Login}    ${TmpWebUser1Password}
 
 
 Test10
