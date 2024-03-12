@@ -15,7 +15,7 @@ ${MyRepositoryName}    TMPWEBV497TC341
 # You must create the folder "MyFolderWorkspace" manually in the computer of Jenkins master, in case you test the script with the computer of Jenkins master
 ${MyFolderWorkspace}    C:/000/jenkins/workspace
 
-${MyHostname}    demo9393
+${MyHostname}    demo5757
 ${MyPortNumber}    10000
 #  Do not use the brackets to define the variable of bearer token
 ${bearerToken}    Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJJbnN0YWxsZXIiLCJuYW1lIjoiSW5zdGFsbGVyIiwiaXNzIjoiVGVsZW1pcyIsImlhdCI6MTUxNjIzOTAyMiwiZXhwIjoxODYxOTIwMDAwfQ.pynnZ69Qx50wuz0Gh4lx-FHZznrcQkbMm0o-PLhb3S0
@@ -226,7 +226,7 @@ My User Opens Internet Browser And Connects To My TMP Web
 Log Out My User Session Of TMP Web
     Click Link    link=Logout
     Wait Until Element Is Visible    xpath=//*[@id="doctor-button"]    timeout=15s
-    Sleep    2s
+    Sleep    3s
 
 
 
@@ -389,6 +389,7 @@ Test08
     Wait Until Page Contains    Delete user    timeout=15s
     Sleep    3s
     Take My Screenshot
+    Log Out My User Session Of TMP Web
     Close All Browsers
 
 
@@ -480,5 +481,5 @@ Test15
 Test16
     [Documentation]    Shut down the browser and reset the cache
     [Tags]    TC016
-    # Close All Browsers
-    Sleep    1s
+    Close All Browsers
+
