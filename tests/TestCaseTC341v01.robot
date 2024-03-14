@@ -332,7 +332,7 @@ Test05
     Wait Until Page Contains    Address    timeout=15s
     Input Text    id=user.attributes.address    4 rue Athena 1348 Louvain    clear=True
     Sleep    1s
-    Textfield Value Should Be    id=user.attributes.address    4 rue Athena 1348 Louvain
+    Textfield Value Should Be    id=user.attributes.address    8 rue Rose 5500 Dinant
 
     Wait Until Element Is Visible    id=user.attributes.medical.number    timeout=15s
     Wait Until Page Contains    Medical number    timeout=15s
