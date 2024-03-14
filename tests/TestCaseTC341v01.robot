@@ -234,13 +234,13 @@ Log Out My User Session Of TMP Web
 
 Test01
     [Documentation]    Reset the test results
-    [Tags]    TC001
+    [Tags]    CRITICALITY LOW
     Remove Files    ${MyFolderWorkspace}/${MyRepositoryName}/results/*.png
 
 
 Test02
     [Documentation]    Open URL with Chrome
-    [Tags]    TC002
+    [Tags]    CRITICALITY NORMAL
     Open Browser    https://${MyHostname}.telemiscloud.com/tmpweb/patients.app    Chrome    options=add_argument("--disable-infobars");add_argument("--lang\=en");binary_location=r"C:\\000\\chromeWin64ForTests\\chrome.exe"
     Wait Until Page Contains    TM-Publisher web    timeout=15s
     Wait Until Element Is Visible    id=kc-current-locale-link    timeout=15s
@@ -250,7 +250,7 @@ Test02
 
 Test03
     [Documentation]    Select the language
-    [Tags]    TC003
+    [Tags]    CRITICALITY LOW
     ${c} =    Get Element Count    id=kc-current-locale-link
     Run Keyword If    ${c}>0    Click Element    id=kc-current-locale-link
     Sleep    2s
@@ -264,7 +264,7 @@ Test03
 
 Test04
     [Documentation]    Click the link Sign up
-    [Tags]    TC004
+    [Tags]    CRITICALITY NORMAL
     Element Should Be Visible    id=kc-registration
     Click Element    id=kc-registration
     Wait Until Page Contains    Medical number    timeout=15s
@@ -273,7 +273,7 @@ Test04
 
 Test05
     [Documentation]    Fill out the form of Sign up
-    [Tags]    TC005
+    [Tags]    CRITICALITY HIGH
     Wait Until Element Is Visible    id=username    timeout=15s
     Wait Until Page Contains    Login    timeout=15s
     Input Text    id=username    anthony    clear=True
@@ -330,7 +330,7 @@ Test05
 
     Wait Until Element Is Visible    id=user.attributes.address    timeout=15s
     Wait Until Page Contains    Address    timeout=15s
-    Input Text    id=user.attributes.address    4 rue Athena 1348 Louvain    clear=True
+    Input Text    id=user.attributes.address    8 rue Rose 5500 Dinant    clear=True
     Sleep    1s
     Textfield Value Should Be    id=user.attributes.address    8 rue Rose 5500 Dinant
 
@@ -343,7 +343,7 @@ Test05
 
 Test06
     [Documentation]    Click the button SIGN UP
-    [Tags]    TC006
+    [Tags]    CRITICALITY HIGH
     Click element    id=logo
     Press Keys    None    PAGE_DOWN
     Sleep    2s
@@ -368,13 +368,13 @@ Test06
 
 Test07
     [Documentation]    Administrator connects to the website of TMP Web
-    [Tags]    TC007
+    [Tags]    CRITICALITY NORMAL
     My User Opens Internet Browser And Connects To My TMP Web    ${TmpWebAdministratorLogin}    ${TmpWebAdministratorPassword}
 
 
 Test08
     [Documentation]    Administrator checks and validate the new user account
-    [Tags]    TC008
+    [Tags]    CRITICALITY NORMAL
     # You have to synchronize two servers (TMP Web and Keycloak) before accessing the list of user accounts. If not, you get the error message (500 Internal Server Error), the bug has not been fixed yet
     Go To    https://${MyHostname}.telemiscloud.com/tmpweb/keycloak_synchro.app
     Wait Until Page Contains    Keycloak synchronization    timeout=15s
@@ -395,13 +395,13 @@ Test08
 
 Test09
     [Documentation]    The limited user account connects to the website for the very first time
-    [Tags]    TC009
+    [Tags]    CRITICALITY NORMAL
     My User Opens Internet Browser And Connects To My TMP Web    ${TmpWebUser1Login}    ${TmpWebUser1Password}
 
 
 Test10
     [Documentation]    The first warning message appears automatically in the first connection of the user account, it requests the user to enter the medical number
-    [Tags]    TC010
+    [Tags]    CRITICALITY HIGH
     Wait Until Page Contains     You must enter your personal unique medical number    timeout=15s
     Wait Until Element Is Visible    id=med-number    timeout=15s
     Wait Until Element Is Visible    css=.form-button    timeout=15s
@@ -410,7 +410,7 @@ Test10
 
 Test11
     [Documentation]    The second warning message (Required field) appears automatically below the input box Medical Number after clicking the button Submit without entering the medical number
-    [Tags]    TC011
+    [Tags]    CRITICALITY HIGH
     Click Button    css=.form-button
     Wait Until Page Contains    Required field    timeout=15s
     Take My Screenshot
@@ -418,7 +418,7 @@ Test11
 
 Test12
     [Documentation]    The third warning message (Medical number already exists) appears automatically below the input box Medical Number after entering a pre-existing medical number
-    [Tags]    TC012
+    [Tags]    CRITICALITY HIGH
     Input Text    id=med-number    12341001    clear=True
     Sleep    1s
     Textfield Value Should Be    id=med-number    12341001
@@ -429,7 +429,7 @@ Test12
 
 Test13
     [Documentation]    The limited user account enters the valid medical number
-    [Tags]    TC013
+    [Tags]    CRITICALITY NORMAL
     Input Text    id=med-number    12341002    clear=True
     Sleep    1s
     Textfield Value Should Be    id=med-number    12341002
@@ -441,7 +441,7 @@ Test13
 
 Test14
     [Documentation]    The limited user account accesses the website of TMP Web
-    [Tags]    TC014
+    [Tags]    CRITICALITY NORMAL
     Page Should Contain Link    link=Settings    None    TRACE
     Click Link    link=Settings
     Sleep    3s
@@ -455,7 +455,7 @@ Test14
 
 Test15
     [Documentation]    Administrator deletes the user account
-    [Tags]    TC015
+    [Tags]    CRITICALITY NORMAL
     My User Opens Internet Browser And Connects To My TMP Web    ${TmpWebAdministratorLogin}    ${TmpWebAdministratorPassword}
     Wait Until Page Contains    Admin    timeout=15s
     Click Link    link=Admin
@@ -480,6 +480,6 @@ Test15
 
 Test16
     [Documentation]    Shut down the browser and reset the cache
-    [Tags]    TC016
+    [Tags]    CRITICALITY LOW
     Close All Browsers
 
