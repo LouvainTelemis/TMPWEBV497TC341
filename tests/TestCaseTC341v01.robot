@@ -482,4 +482,3 @@ Test16
     [Documentation]    Shut down the browser and reset the cache
     [Tags]    CRITICALITY LOW
     Close All Browsers
-
